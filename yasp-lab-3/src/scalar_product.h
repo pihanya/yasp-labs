@@ -1,0 +1,8 @@
+//
+// Created by Pihanya on 30.10.2018.
+//
+
+#ifndef PRIME_CHECKER_SCALAR_PRODUCT_H
+#define PRIME_CHECKER_SCALAR_PRODUCT_H
+
+#endif //PRIME_CHECKER_SCALAR_PRODUCT_H
