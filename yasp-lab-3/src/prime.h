@@ -1,13 +1,13 @@
 #ifndef YASP_LAB_3_PRIME_H
 #define YASP_LAB_3_PRIME_H
 
-int ferma(long long x);
+int ferma(unsigned long long x);
 
-long long gcd(long long a, long long b);
+unsigned long long gcd(unsigned long long a, unsigned long long b);
 
-long long pows(long long a, long long b, long long m);
+unsigned long long pows(unsigned long long a, unsigned long long b, unsigned long long m);
 
-long long mul(long long a, long long b, long long m);
+unsigned long long mul(unsigned long long a, unsigned long long b, unsigned long long m);
 
 int main();
 

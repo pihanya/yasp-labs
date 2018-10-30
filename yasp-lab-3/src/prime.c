@@ -9,13 +9,25 @@ typedef int bool;
 #define true 1
 #define false 0
 
-bool ferma(long long x) {
+const int K = 100;
+
+bool prime_sqrt(unsigned long long x) {
+    for(int i = 2; i*i < x; ++i) {
+        if(x % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool ferma(unsigned long long x) {
     if (x == 2) {
         return true;
     }
 
     srand(time(NULL));
-    for (int i = 0; i < 100; ++i) {
+    for (unsigned long long  i = 0; i < K; ++i) {
         long long a = (rand() % (x - 2)) + 2;
         if (gcd(a, x) != 1) {
             return false;
@@ -29,7 +41,7 @@ bool ferma(long long x) {
     return true;
 }
 
-long long gcd(long long a, long long b) {
+unsigned long long gcd(unsigned long long a, unsigned long long b) {
     if (b == 0) {
         return a;
     }
@@ -37,7 +49,7 @@ long long gcd(long long a, long long b) {
     return gcd(b, a % b);
 }
 
-long long pows(long long a, long long b, long long m) {
+unsigned long long pows(unsigned long long a, unsigned long long b, unsigned long long m) {
     if (b == 0) {
         return 1;
     }
@@ -50,7 +62,7 @@ long long pows(long long a, long long b, long long m) {
     return (mul(pows(a, b - 1, m), a, m)) % m;
 }
 
-long long mul(long long a, long long b, long long m) {
+unsigned long long mul(unsigned long long a, unsigned long long b, unsigned long long m) {
     if (b == 1) {
         return a;
     }
@@ -64,14 +76,14 @@ long long mul(long long a, long long b, long long m) {
 }
 
 int main() {
-    long long int a;
+    unsigned long long int a;
 
-    scanf("%lld", &a);
-    printf("Given number is: %lld\n", a);
+    scanf("%llu", &a);
+    printf("Given number is: %llu\n", a);
 
     if(ferma(a)) {
-        printf("%lld is prime", a);
+        printf("%llu is prime", a);
     } else {
-        printf("%lld is not prime", a);
+        printf("%llu is not prime", a);
     }
 }

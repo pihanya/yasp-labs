@@ -1,12 +1,10 @@
 #include <stdlib.h>
-#include <stdint.h>
-#include <time.h>
 #include <stdio.h>
 #include <afxres.h>
 
-const int N = 5;
+const int MAX_RAND = 100;
 
-double cross_product(const double *lvec, const double *rvec, size_t count) {
+long cross_product(int lvec[], int rvec[], int count) {
     double product = 0.0;
     for (size_t i = 0; i < count; ++i) {
         product += (lvec[i] * rvec[i]);
@@ -17,13 +15,18 @@ double cross_product(const double *lvec, const double *rvec, size_t count) {
 
 void fill_random(double *ar, size_t count) {
     for (size_t i = 0; i < count; ++i) {
-        ar[i] = (double) rand() / RAND_MAX * 2.0 - 1.0;
+        ar[i] = rand() % MAX_RAND;
     }
 }
 
 int main() {
-    double a[N];
-    double b[N];
+    int N;
+
+    printf("Type the size of vectors: \n");
+    scanf("%d", &N);
+
+    int a[N];
+    int b[N];
 
     fill_random(a, N);
     fill_random(b, N);
