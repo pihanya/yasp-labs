@@ -1,26 +1,21 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
-#define MAX_RAND 10;
+#include "cross_product.h"
 
-long cross_product(const int lvec[], const int rvec[], int count) {
-    long product = 0L;
-    for (size_t i = 0; i < count; ++i) {
-        product += (lvec[i] * rvec[i]);
-    }
+#define MAX_RANDOM 5
 
-    return product;
-}
-
-void fill_random(int *ar, int count) {
-    for (size_t i = 0; i < count; ++i) {
-        ar[i] = rand() % MAX_RAND;
+void fill_random(int ar[], int count) {
+    for(int i = 0; i < count; ++i) {
+        ar[i] = (rand() % MAX_RANDOM);
     }
 }
 
 int main() {
-    int N;
+    srand((unsigned) time(NULL));
 
+    int N;
     printf("Type the size of vectors: \n");
     scanf("%d", &N);
 
@@ -49,7 +44,6 @@ int main() {
         }
     }
 
-
-    printf("Cross product: %ld\n", cross_product(a, b, N));
+    printf("Cross product: %lld\n", cross_product(a, b, N));
     return 0;
 }

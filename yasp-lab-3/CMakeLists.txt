@@ -4,5 +4,13 @@ cmake_minimum_required(VERSION 2.6.0)
 # C compiler on the system will be used
 project(prime_checker C)
 
-add_executable(checker src/prime.c)
-add_executable(product src/scalar_product.c)
+add_executable(prime
+        src/prime/main.c
+        src/prime/prime_ferma.c
+        src/prime/prime_checker.h
+        src/etc/math.h
+        src/etc/utils.h)
+
+add_executable(product
+        src/product/cross_product.c
+        src/product/main.c)
