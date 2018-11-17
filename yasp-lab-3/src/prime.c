@@ -4,12 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef int bool;
-
-#define true 1
-#define false 0
-
-const int K = 100;
+const int K = 1000;
 
 bool prime_sqrt(unsigned long long x) {
     for(int i = 2; i*i < x; ++i) {
@@ -22,11 +17,12 @@ bool prime_sqrt(unsigned long long x) {
 }
 
 bool ferma(unsigned long long x) {
+
     if (x == 2) {
         return true;
     }
 
-    srand(time(NULL));
+    srand((unsigned int) time(NULL));
     for (unsigned long long  i = 0; i < K; ++i) {
         long long a = (rand() % (x - 2)) + 2;
         if (gcd(a, x) != 1) {
@@ -78,12 +74,12 @@ unsigned long long mul(unsigned long long a, unsigned long long b, unsigned long
 int main() {
     unsigned long long int a;
 
+    printf("Type a number: \n");
     scanf("%llu", &a);
-    printf("Given number is: %llu\n", a);
 
-    if(ferma(a)) {
-        printf("%llu is prime", a);
+    if(prime_sqrt(a)) {
+        printf("%llu is prime\n", a);
     } else {
-        printf("%llu is not prime", a);
+        printf("%llu is not prime\n", a);
     }
 }

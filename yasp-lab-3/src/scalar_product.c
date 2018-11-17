@@ -1,11 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <afxres.h>
 
-const int MAX_RAND = 100;
+#define MAX_RAND 10;
 
-long cross_product(int lvec[], int rvec[], int count) {
-    double product = 0.0;
+long cross_product(const int lvec[], const int rvec[], int count) {
+    long product = 0L;
     for (size_t i = 0; i < count; ++i) {
         product += (lvec[i] * rvec[i]);
     }
@@ -13,7 +12,7 @@ long cross_product(int lvec[], int rvec[], int count) {
     return product;
 }
 
-void fill_random(double *ar, size_t count) {
+void fill_random(int *ar, int count) {
     for (size_t i = 0; i < count; ++i) {
         ar[i] = rand() % MAX_RAND;
     }
@@ -25,21 +24,32 @@ int main() {
     printf("Type the size of vectors: \n");
     scanf("%d", &N);
 
-    int a[N];
-    int b[N];
+    int a[N], b[N];
 
     fill_random(a, N);
     fill_random(b, N);
 
-    int sizeA = sizeof(a) / sizeof(double);
-    int sizeB = sizeof(b) / sizeof(double);
-    printf("Size of a: %d\nSize of b: %d\n", sizeA, sizeB);
+    printf("Size of vectors %d\n", N);
 
-    int bound = min(sizeA, sizeB);
-    for (size_t i = 0; i < bound; ++i) {
-        printf("A: %.2f, B: %.2f\n", a[i], b[i]);
+    printf("A: ");
+    for (int i = 0; i < N; ++i) {
+        if(i + 1 == N) {
+            printf("%d\n", a[i]);
+        } else {
+            printf("%d ", a[i]);
+        }
     }
 
-    printf("Cross product: %.5f\n", cross_product(a, b, N));
+    printf("B: ");
+    for (int i = 0; i < N; ++i) {
+        if(i + 1 == N) {
+            printf("%d\n", b[i]);
+        } else {
+            printf("%d ", b[i]);
+        }
+    }
+
+
+    printf("Cross product: %ld\n", cross_product(a, b, N));
     return 0;
 }

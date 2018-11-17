@@ -9,7 +9,7 @@
 
 long long cross_product(int lvec[], int rvec[], int count);
 
-void fill_random(double *ar, size_t count);
+void fill_random(int *ar, int count);
 
 int main();
 

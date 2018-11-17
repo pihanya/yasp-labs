@@ -1,7 +1,12 @@
 #ifndef YASP_LAB_3_PRIME_H
 #define YASP_LAB_3_PRIME_H
 
-int ferma(unsigned long long x);
+typedef char bool;
+
+#define true 1
+#define false 0
+
+bool ferma(unsigned long long x);
 
 unsigned long long gcd(unsigned long long a, unsigned long long b);
 
