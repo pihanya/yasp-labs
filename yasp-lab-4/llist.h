@@ -1,3 +1,6 @@
+#ifndef YASP_LAB_4_LLIST_H
+#define YASP_LAB_4_LLIST_H
+
 #include <stdio.h>
 #include <malloc.h>
 
@@ -21,3 +24,5 @@ int llist_get(item const *, size_t, int *);
 item const *llist_node_at(item const *, size_t);
 
 int llist_sum(item const *);
+
+#endif //YASP_LAB_4_LLIST_H

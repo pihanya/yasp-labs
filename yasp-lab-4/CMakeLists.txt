@@ -6,5 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(yasp_lab_4
-        llist.h
-        main.c)
+        main.c
+        llist.h llist.c
+        high_order.h high_order.c)
