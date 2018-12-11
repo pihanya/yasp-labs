@@ -11,7 +11,6 @@ add_executable(verticles
 add_executable(program
     executables/main.h executables/main.c
     data/image.h
-    filters/acid.h filters/acid.c
     filters/gaussian_blur.h filters/gaussian_blur.c
     filters/image_rotator.h filters/image_rotator.c
     io/bmp_io.h io/bmp_io.c

@@ -11,9 +11,9 @@ static double gaussen_blur(uint32_t x, uint32_t y, uint32_t r) {
 static int max(int a, int b) { return a > b ? a : b; }
 static int min(int a, int b) { return a > b ? b : a; }
 
-static pixel_t blur_it(const image_t *const image, uint32_t x,
-                       uint32_t y,
-                       uint32_t r) {
+static pixel_t blur_pixel(const image_t *const image, uint32_t x,
+                          uint32_t y,
+                          uint32_t r) {
   size_t i, j;
   size_t w = image->width;
   size_t h = image->height;
@@ -41,7 +41,7 @@ static pixel_t blur_it(const image_t *const image, uint32_t x,
   return blured;
 }
 
-void image_gaussian_blur(image_t *const image) {
+void gaussian_blur(image_t *const image) {
   size_t x, y;
   size_t w = image->width;
   size_t h = image->height;
@@ -49,7 +49,7 @@ void image_gaussian_blur(image_t *const image) {
   pixel_t *blured = malloc(sizeof(pixel_t) * w * h);
   for (y = 0; y < h; y++) {
     for (x = 0; x < w; x++) {
-      *(blured + y * w + x) = blur_it(image, x, y, r);
+      *(blured + y * w + x) = blur_pixel(image, x, y, r);
     }
   }
 

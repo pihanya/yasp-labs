@@ -144,9 +144,5 @@ void rotation(image_t *const image) {
 }
 
 void blur(image_t *const image) {
-  image_gaussian_blur(image);
-}
-
-void acid(image_t *const image) {
-  acid(image);
+  gaussian_blur(image);
 }

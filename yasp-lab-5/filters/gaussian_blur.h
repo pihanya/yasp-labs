@@ -4,6 +4,6 @@
 #include <math.h>
 #include "../data/image.h"
 
-void image_gaussian_blur(image_t* const image);
+void gaussian_blur(image_t *const image);
 
 #endif
