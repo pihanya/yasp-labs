@@ -9,7 +9,6 @@
 #include "../data/image.h"
 #include "../io/bmp_io.h"
 #include "../filters/image_rotator.h"
-#include "../filters/acid.h"
 #include "../filters/gaussian_blur.h"
 #include "../util/bmp_io_statuses.h"
 
@@ -22,7 +21,6 @@ int contains(const char *string, char c);
 
 void rotation(image_t *const image);
 void blur(image_t *const image);
-void acid(image_t *const image);
 
 void usage();
 #endif

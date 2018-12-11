@@ -77,8 +77,6 @@ void **parse_keys(size_t keys_len, const char *keys) {
         break;
       case 'b':chain[index] = &blur;
         break;
-      case 'a':chain[index] = &acid;
-        break;
       default:free(chain);
         return NULL;
     }
