@@ -38,7 +38,7 @@ read_status_t read_pixels(FILE *const file, const uint32_t offset,
                           const uint32_t width,
                           const uint32_t height) {
   size_t a, row;
-  size_t trash_size = width * 3 % 4 == 0 ? 0 : 4 - (width * 3 % 4);
+  size_t trash_size = (width * 3) % 4 == 0 ? 0 : 4 - ((width * 3) % 4);
   fseek(file, (long) offset, SEEK_SET);
   for (row = 0; row < height; row++) {
 
@@ -46,7 +46,7 @@ read_status_t read_pixels(FILE *const file, const uint32_t offset,
       printf("%lu\n", a);
       return READ_P_CORRUPTED;
     }
-    fseek(file, trash_size, SEEK_CUR);
+    fseek(file, (long) trash_size, SEEK_CUR);
   }
   return READ_OK;
 }
@@ -81,7 +81,8 @@ write_status_t write_image(FILE *const file, const image_t *const image) {
     if (fwrite(pixels + row * w, 1, 3 * w, file) != w * 3)
       return WRITE_ERROR;
     if (padding != 0) {
-      fseek(file, padding, SEEK_CUR);
+//      fseek(file, padding, SEEK_CUR);
+      fwrite(trash, 1, padding, file);
     }
   }
 

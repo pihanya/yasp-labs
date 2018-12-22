@@ -41,7 +41,7 @@ line_t line(int x0, int y0, int x1, int y1) {
     }
   }
 
-  struct _line_t line;
+  struct line_t line;
   line.n = verticles_amount;
   line.verticles = verticles;
 

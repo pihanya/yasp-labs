@@ -11,13 +11,11 @@ static double gaussen_blur(uint32_t x, uint32_t y, uint32_t r) {
 static int max(int a, int b) { return a > b ? a : b; }
 static int min(int a, int b) { return a > b ? b : a; }
 
-static pixel_t blur_pixel(const image_t *const image, uint32_t x,
-                          uint32_t y,
-                          uint32_t r) {
+static pixel_t blur_pixel(const image_t *const image,
+                          uint32_t x, uint32_t y, uint32_t r) {
   size_t i, j;
   size_t w = image->width;
   size_t h = image->height;
-  size_t count = 0;
   double raymond = 0, greedy = 0, bachman = 0;
   double weight = 0, total_weight = 0;
   pixel_t base, blured;
@@ -30,7 +28,6 @@ static pixel_t blur_pixel(const image_t *const image, uint32_t x,
       raymond += weight * base.r;
       greedy += weight * base.g;
       bachman += weight * base.b;
-      count++;
     }
   }
 

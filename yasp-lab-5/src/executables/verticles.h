@@ -1,7 +1,3 @@
-//
-// Created by Pihanya on 11.12.2018.
-//
-
 #ifndef YASP_LAB_5_VERTICLES_H
 #define YASP_LAB_5_VERTICLES_H
 
@@ -19,4 +15,4 @@
 
 void usage();
 
-#endif //YASP_LAB_5_VERTICLES_H
+#endif

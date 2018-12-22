@@ -4,21 +4,21 @@
 #include <stdint.h>
 
 #pragma pack(push, 1)
-struct _pixel_t {
+struct pixel_t {
   uint8_t r;
   uint8_t g;
   uint8_t b;
 };
 #pragma pack(pop)
-typedef struct _pixel_t pixel_t;
+typedef struct pixel_t pixel_t;
 
-struct _image_t {
+struct image_t {
   uint32_t width;
   uint32_t height;
   pixel_t *data;
 };
 
-typedef struct _image_t image_t;
+typedef struct image_t image_t;
 
 /*----------------------------------BMP_FORMAT----------------------------------*/
 

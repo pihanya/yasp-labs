@@ -73,6 +73,8 @@ void **parse_keys(size_t keys_len, const char *keys) {
 
   while (++index < keys_len) {
     switch (keys[index]) {
+      case 'a':chain[index] = &acid;
+        break;
       case 'r':chain[index] = &rotation;
         break;
       case 'b':chain[index] = &blur;
@@ -143,4 +145,8 @@ void rotation(image_t *const image) {
 
 void blur(image_t *const image) {
   gaussian_blur(image);
+}
+
+void acid(image_t *const image) {
+  image_acid(image);
 }
